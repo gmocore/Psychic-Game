@@ -1,3 +1,5 @@
+// VARIABLES
+
 const winsDisplay = document.getElementById("wins-display");
 const lossesDisplay = document.getElementById("losses-display");
 const remainingGuessesDisplay = document.getElementById(
@@ -16,6 +18,8 @@ let remainingGuesses = 9;
 let incorrectGuesses = [];
 let letter;
 
+// EVENT LISTENER
+
 document.addEventListener("keyup", function(event) {
   let userGuess = event.key;
   if (userGuess === letter) {
@@ -23,25 +27,17 @@ document.addEventListener("keyup", function(event) {
     wins++;
     winsDisplay.textContent = wins;
     correctSound.play();
-    lowerContent.classList.add("correct");
-    displayText.classList.add("correct");
-    setTimeout(() => {
-      lowerContent.classList.remove("correct");
-      displayText.classList.remove("correct");
-    }, 1000);
+    flashCorrect();
     newGame();
   } else {
     incorrectGuesses.push(userGuess);
     incorrectSound.play();
-    lowerContent.classList.add("incorrect");
-    displayText.classList.add("incorrect");
-    setTimeout(() => {
-      lowerContent.classList.remove("incorrect");
-      displayText.classList.remove("incorrect");
-    }, 1000);
+    flashIncorrect();
     scoreCheck();
   }
 });
+
+//FUNCTIONS
 
 function randomLetter() {
   let letterArray = [
@@ -100,4 +96,22 @@ function newGame() {
   incorrectGuesses = [];
   incorrectGuessesDisplay.textContent = "";
   randomLetter();
+}
+
+function flashCorrect() {
+  lowerContent.classList.add("correct");
+  displayText.classList.add("correct");
+  setTimeout(() => {
+    lowerContent.classList.remove("correct");
+    displayText.classList.remove("correct");
+  }, 1000);
+}
+
+function flashIncorrect() {
+  lowerContent.classList.add("incorrect");
+  displayText.classList.add("incorrect");
+  setTimeout(() => {
+    lowerContent.classList.remove("incorrect");
+    displayText.classList.remove("incorrect");
+  }, 1000);
 }
