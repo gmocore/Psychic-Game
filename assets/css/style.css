@@ -1,8 +1,49 @@
-.container {
-    min-height: 35vh;
+body {
+  font-family: "Bahianita", cursive;
+  letter-spacing: 3px;
+  background-image: url("../images/meditation-3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+.container {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+.lower-content {
+  background-color: black;
+  width: 20vw;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.header {
+  color: wheat;
+  background-color: black;
+  text-align: center;
+}
+
+.title {
+  font-size: 5em;
+  letter-spacing: 25px;
+}
+
+.sub-header {
+  font-size: 2.5em;
+}
+
+h4 {
+  font-size: 2em;
+}
+
+#wins-display {
+  color: green;
+}
+
+#losses-display {
+  color: red;
 }
