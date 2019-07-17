@@ -10,15 +10,24 @@ body {
 .container {
   height: 75vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
 }
 .lower-content {
   background-color: black;
   width: 20vw;
   border-radius: 10px;
   padding: 25px;
+  margin-left: 5px;
+}
+
+.display-text-container {
+  background-color: black;
+  width: 22vw;
+  border-radius: 10px;
+  padding: 20px;
+  margin-right: 5px;
 }
 
 .header {
