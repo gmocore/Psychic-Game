@@ -6,6 +6,8 @@ const remainingGuessesDisplay = document.getElementById(
 const incorrectGuessesDisplay = document.getElementById(
   "incorrect-guesses-display"
 );
+const lowerContent = document.querySelector(".lower-content");
+const displayText = document.querySelector(".display-text-container");
 const incorrectSound = document.getElementById("incorrect-sound");
 const correctSound = document.getElementById("correct-sound");
 let wins = 0;
@@ -21,10 +23,22 @@ document.addEventListener("keyup", function(event) {
     wins++;
     winsDisplay.textContent = wins;
     correctSound.play();
+    lowerContent.classList.add("correct");
+    displayText.classList.add("correct");
+    setTimeout(() => {
+      lowerContent.classList.remove("correct");
+      displayText.classList.remove("correct");
+    }, 1000);
     newGame();
   } else {
     incorrectGuesses.push(userGuess);
     incorrectSound.play();
+    lowerContent.classList.add("incorrect");
+    displayText.classList.add("incorrect");
+    setTimeout(() => {
+      lowerContent.classList.remove("incorrect");
+      displayText.classList.remove("incorrect");
+    }, 1000);
     scoreCheck();
   }
 });

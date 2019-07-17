@@ -20,6 +20,7 @@ body {
   border-radius: 10px;
   padding: 25px;
   margin-left: 5px;
+  border: 2px solid black;
 }
 
 .display-text-container {
@@ -28,6 +29,7 @@ body {
   border-radius: 10px;
   padding: 20px;
   margin-right: 5px;
+  border: 2px solid black;
 }
 
 .header {
@@ -55,4 +57,18 @@ h4 {
 
 #losses-display {
   color: red;
+}
+
+.shadow {
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+}
+
+.correct {
+  border: 2px solid rgb(33, 204, 33);
+  transition: 0.3s;
+}
+
+.incorrect {
+  border: 2px solid rgb(199, 36, 36);
+  transition: 0.3s;
 }
