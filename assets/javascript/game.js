@@ -21,19 +21,27 @@ let letter;
 // EVENT LISTENER
 
 document.addEventListener("keyup", function(event) {
-  let userGuess = event.key;
-  if (userGuess === letter) {
-    console.log("Correct");
-    wins++;
-    winsDisplay.textContent = wins;
-    correctSound.play();
-    flashCorrect();
-    newGame();
-  } else {
-    incorrectGuesses.push(userGuess);
-    incorrectSound.play();
-    flashIncorrect();
-    scoreCheck();
+  // makes user guess case-insesnitive
+  let userGuess = event.key.toLowerCase();
+  let validLetter;
+  // validate a-z is pressed
+  if (userGuess.charCodeAt() >= 97 && userGuess.charCodeAt() <= 122) {
+    validLetter = true;
+  }
+  if (validLetter) {
+    if (userGuess === letter) {
+      console.log("Correct");
+      wins++;
+      winsDisplay.textContent = wins;
+      correctSound.play();
+      flashCorrect();
+      newGame();
+    } else {
+      incorrectGuesses.push(userGuess);
+      incorrectSound.play();
+      flashIncorrect();
+      scoreCheck();
+    }
   }
 });
 
@@ -68,6 +76,7 @@ function randomLetter() {
     "y",
     "z"
   ];
+
   for (let i = 0; i < letterArray.length; i++) {
     let randomIndex = Math.floor(Math.random() * letterArray.length);
     letter = letterArray[randomIndex];
