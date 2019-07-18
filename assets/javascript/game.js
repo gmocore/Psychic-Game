@@ -28,6 +28,7 @@ document.addEventListener("keyup", function(event) {
   if (userGuess.charCodeAt() >= 97 && userGuess.charCodeAt() <= 122) {
     validLetter = true;
   }
+  // if valid letter is pressed, game proceeds
   if (validLetter) {
     if (userGuess === letter) {
       console.log("Correct");
@@ -38,6 +39,7 @@ document.addEventListener("keyup", function(event) {
       newGame();
     } else {
       incorrectGuesses.push(userGuess);
+
       incorrectSound.play();
       flashIncorrect();
       scoreCheck();
@@ -76,7 +78,7 @@ function randomLetter() {
     "y",
     "z"
   ];
-
+  // creates and returns random letter
   for (let i = 0; i < letterArray.length; i++) {
     let randomIndex = Math.floor(Math.random() * letterArray.length);
     letter = letterArray[randomIndex];
@@ -87,12 +89,14 @@ function randomLetter() {
 
 randomLetter();
 
+//incorrect guess runs this
 function scoreCheck() {
   remainingGuesses--;
   remainingGuessesDisplay.textContent = remainingGuesses;
   incorrectGuessesDisplay.textContent = incorrectGuesses
     .join(" ")
     .toUpperCase();
+  //triggers new game when no guesses remain
   if (remainingGuesses < 1) {
     losses++;
     lossesDisplay.textContent = losses;
@@ -107,6 +111,7 @@ function newGame() {
   randomLetter();
 }
 
+//correct guess visual cue
 function flashCorrect() {
   lowerContent.classList.add("correct");
   displayText.classList.add("correct");
@@ -116,6 +121,7 @@ function flashCorrect() {
   }, 1000);
 }
 
+//incorrect guess visual cue
 function flashIncorrect() {
   lowerContent.classList.add("incorrect");
   displayText.classList.add("incorrect");
