@@ -27,7 +27,7 @@ document.addEventListener("keyup", function(event) {
   // validate a-z is pressed
   if (userGuess.charCodeAt() >= 97 && userGuess.charCodeAt() <= 122) {
     validLetter = true;
-  }
+  } 
   // if valid letter is pressed, game proceeds
   if (validLetter) {
     if (userGuess === letter) {
@@ -38,11 +38,12 @@ document.addEventListener("keyup", function(event) {
       flashCorrect();
       newGame();
     } else {
-      incorrectGuesses.push(userGuess);
-
-      incorrectSound.play();
-      flashIncorrect();
-      scoreCheck();
+      if(validLetter) {
+        incorrectGuesses.push(userGuess);
+        incorrectSound.play();
+        flashIncorrect();
+        scoreCheck();
+      }
     }
   }
 });
