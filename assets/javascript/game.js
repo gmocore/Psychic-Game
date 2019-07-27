@@ -25,7 +25,7 @@ document.addEventListener("keyup", function(event) {
   let userGuess = event.key.toLowerCase();
   let validLetter;
   // validate a-z is pressed
-  if (userGuess.charCodeAt() >= 97 && userGuess.charCodeAt() <= 122) {
+  if (event.keyCode > 64 && event.keyCode < 91) {
     validLetter = true;
   } 
   // if valid letter is pressed, game proceeds
@@ -38,7 +38,7 @@ document.addEventListener("keyup", function(event) {
       flashCorrect();
       newGame();
     } else {
-      if(validLetter) {
+      if(validLetter && !incorrectGuesses.includes(userGuess)) {
         incorrectGuesses.push(userGuess);
         incorrectSound.play();
         flashIncorrect();
